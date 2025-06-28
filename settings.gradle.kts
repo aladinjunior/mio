@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "MIO"
 include(":app")
 include(":feature")
+include(":feature:nowplaying")
