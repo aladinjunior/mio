@@ -1,7 +1,9 @@
 package com.aladin.ui.theme
+
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -246,93 +248,93 @@ private val highContrastDarkColorScheme = darkColorScheme(
 )
 
 val extendedLight = ExtendedColorScheme(
-  primaryAccent = ColorFamily(
-  primaryAccentLight,
-  onPrimaryAccentLight,
-  primaryAccentContainerLight,
-  onPrimaryAccentContainerLight,
-  ),
-  secondaryAccent = ColorFamily(
-  secondaryAccentLight,
-  onSecondaryAccentLight,
-  secondaryAccentContainerLight,
-  onSecondaryAccentContainerLight,
-  ),
+    primaryAccent = ColorFamily(
+        primaryAccentLight,
+        onPrimaryAccentLight,
+        primaryAccentContainerLight,
+        onPrimaryAccentContainerLight,
+    ),
+    secondaryAccent = ColorFamily(
+        secondaryAccentLight,
+        onSecondaryAccentLight,
+        secondaryAccentContainerLight,
+        onSecondaryAccentContainerLight,
+    ),
 )
 
 val extendedDark = ExtendedColorScheme(
-  primaryAccent = ColorFamily(
-  primaryAccentDark,
-  onPrimaryAccentDark,
-  primaryAccentContainerDark,
-  onPrimaryAccentContainerDark,
-  ),
-  secondaryAccent = ColorFamily(
-  secondaryAccentDark,
-  onSecondaryAccentDark,
-  secondaryAccentContainerDark,
-  onSecondaryAccentContainerDark,
-  ),
+    primaryAccent = ColorFamily(
+        primaryAccentDark,
+        onPrimaryAccentDark,
+        primaryAccentContainerDark,
+        onPrimaryAccentContainerDark,
+    ),
+    secondaryAccent = ColorFamily(
+        secondaryAccentDark,
+        onSecondaryAccentDark,
+        secondaryAccentContainerDark,
+        onSecondaryAccentContainerDark,
+    ),
 )
 
 val extendedLightMediumContrast = ExtendedColorScheme(
-  primaryAccent = ColorFamily(
-  primaryAccentLightMediumContrast,
-  onPrimaryAccentLightMediumContrast,
-  primaryAccentContainerLightMediumContrast,
-  onPrimaryAccentContainerLightMediumContrast,
-  ),
-  secondaryAccent = ColorFamily(
-  secondaryAccentLightMediumContrast,
-  onSecondaryAccentLightMediumContrast,
-  secondaryAccentContainerLightMediumContrast,
-  onSecondaryAccentContainerLightMediumContrast,
-  ),
+    primaryAccent = ColorFamily(
+        primaryAccentLightMediumContrast,
+        onPrimaryAccentLightMediumContrast,
+        primaryAccentContainerLightMediumContrast,
+        onPrimaryAccentContainerLightMediumContrast,
+    ),
+    secondaryAccent = ColorFamily(
+        secondaryAccentLightMediumContrast,
+        onSecondaryAccentLightMediumContrast,
+        secondaryAccentContainerLightMediumContrast,
+        onSecondaryAccentContainerLightMediumContrast,
+    ),
 )
 
 val extendedLightHighContrast = ExtendedColorScheme(
-  primaryAccent = ColorFamily(
-  primaryAccentLightHighContrast,
-  onPrimaryAccentLightHighContrast,
-  primaryAccentContainerLightHighContrast,
-  onPrimaryAccentContainerLightHighContrast,
-  ),
-  secondaryAccent = ColorFamily(
-  secondaryAccentLightHighContrast,
-  onSecondaryAccentLightHighContrast,
-  secondaryAccentContainerLightHighContrast,
-  onSecondaryAccentContainerLightHighContrast,
-  ),
+    primaryAccent = ColorFamily(
+        primaryAccentLightHighContrast,
+        onPrimaryAccentLightHighContrast,
+        primaryAccentContainerLightHighContrast,
+        onPrimaryAccentContainerLightHighContrast,
+    ),
+    secondaryAccent = ColorFamily(
+        secondaryAccentLightHighContrast,
+        onSecondaryAccentLightHighContrast,
+        secondaryAccentContainerLightHighContrast,
+        onSecondaryAccentContainerLightHighContrast,
+    ),
 )
 
 val extendedDarkMediumContrast = ExtendedColorScheme(
-  primaryAccent = ColorFamily(
-  primaryAccentDarkMediumContrast,
-  onPrimaryAccentDarkMediumContrast,
-  primaryAccentContainerDarkMediumContrast,
-  onPrimaryAccentContainerDarkMediumContrast,
-  ),
-  secondaryAccent = ColorFamily(
-  secondaryAccentDarkMediumContrast,
-  onSecondaryAccentDarkMediumContrast,
-  secondaryAccentContainerDarkMediumContrast,
-  onSecondaryAccentContainerDarkMediumContrast,
-  ),
+    primaryAccent = ColorFamily(
+        primaryAccentDarkMediumContrast,
+        onPrimaryAccentDarkMediumContrast,
+        primaryAccentContainerDarkMediumContrast,
+        onPrimaryAccentContainerDarkMediumContrast,
+    ),
+    secondaryAccent = ColorFamily(
+        secondaryAccentDarkMediumContrast,
+        onSecondaryAccentDarkMediumContrast,
+        secondaryAccentContainerDarkMediumContrast,
+        onSecondaryAccentContainerDarkMediumContrast,
+    ),
 )
 
 val extendedDarkHighContrast = ExtendedColorScheme(
-  primaryAccent = ColorFamily(
-  primaryAccentDarkHighContrast,
-  onPrimaryAccentDarkHighContrast,
-  primaryAccentContainerDarkHighContrast,
-  onPrimaryAccentContainerDarkHighContrast,
-  ),
-  secondaryAccent = ColorFamily(
-  secondaryAccentDarkHighContrast,
-  onSecondaryAccentDarkHighContrast,
-  secondaryAccentContainerDarkHighContrast,
-  onSecondaryAccentContainerDarkHighContrast,
-  ),
+    primaryAccent = ColorFamily(
+        primaryAccentDarkHighContrast,
+        onPrimaryAccentDarkHighContrast,
+        primaryAccentContainerDarkHighContrast,
+        onPrimaryAccentContainerDarkHighContrast,
+    ),
+    secondaryAccent = ColorFamily(
+        secondaryAccentDarkHighContrast,
+        onSecondaryAccentDarkHighContrast,
+        secondaryAccentContainerDarkHighContrast,
+        onSecondaryAccentContainerDarkHighContrast,
+    ),
 )
 
 @Immutable
@@ -354,20 +356,12 @@ fun AppTheme(
     dynamicColor: Boolean = true,
     content: @Composable() () -> Unit
 ) {
-  val colorScheme = when {
-      dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-          val context = LocalContext.current
-          if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-      }
-      
-      darkTheme -> darkScheme
-      else -> lightScheme
-  }
+    val colorScheme = if (darkTheme) darkColorScheme() else lightScheme
 
-  MaterialTheme(
-    colorScheme = colorScheme,
-    typography = Typography,
-    content = content
-  )
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = Typography,
+        content = content
+    )
 }
 
