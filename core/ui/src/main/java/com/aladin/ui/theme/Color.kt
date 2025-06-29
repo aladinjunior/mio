@@ -1,4 +1,4 @@
-package com.aladin.mio.ui.theme
+package com.aladin.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val primaryLight = Color(0xFF3D5F90)
