@@ -38,6 +38,8 @@ android {
 
 dependencies {
 
+    implementation(project(":core:ui"))
+
     //Palette
     implementation(libs.androidx.palette.ktx)
 

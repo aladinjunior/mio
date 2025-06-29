@@ -28,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aladin.nowplaying.R
+import com.aladin.ui.theme.AppTheme
 
 @Composable
 fun NowPlaying() {
@@ -76,7 +77,7 @@ fun Control(modifier: Modifier = Modifier) {
             .size(
                 70.dp
             )
-            .background(color = Color)
+            .background(color = MaterialTheme.colorScheme.secondary)
 
     )
 }
@@ -84,5 +85,7 @@ fun Control(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun ControlPreview() {
-    Control()
+    AppTheme {
+        Control()
+    }
 }
