@@ -1,8 +1,10 @@
 package com.aladin.nowplaying.track
 
 import android.graphics.BitmapFactory
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +20,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
@@ -32,10 +35,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -128,19 +135,80 @@ fun Control() {
 
 @Composable
 fun MusicProgressBar(
-    progress: Float, // de 0f a 1f
-    onSeekChanged: (Float) -> Unit
 ) {
-    Slider(
+
+    var progress by remember { mutableStateOf(0.5f) }
+    FancyGradientSlider(
         value = progress,
-        onValueChange = onSeekChanged,
+        onValueChange = { progress = it },
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = 24.dp)
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FancyGradientSlider(
+    value: Float,
+    onValueChange: (Float) -> Unit,
+    modifier: Modifier = Modifier,
+    valueRange: ClosedFloatingPointRange<Float> = 0f..1f
+) {
+    val density = LocalDensity.current
+    val activeGradient = Brush.horizontalGradient(
+        listOf(Color(0xFF0047AB), Color(0xFF00CFFF)) // azul escuro → claro
+    )
+    val inactiveColor = Color(0xFFDDDDDD)
+
+    Slider(
+        value = value,
+        onValueChange = onValueChange,
+        valueRange = valueRange,
+        modifier = modifier,
         colors = SliderDefaults.colors(
-            thumbColor = MaterialTheme.colorScheme.primary,
-            activeTrackColor = MaterialTheme.colorScheme.primary
-        )
+            activeTrackColor = Color.Transparent,
+            inactiveTrackColor = Color.Transparent,
+            thumbColor = Color.Transparent
+        ),
+        track = {
+            val progressFraction =
+                (value - valueRange.start) / (valueRange.endInclusive - valueRange.start)
+
+            Canvas(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(4.dp)
+            ) {
+                val trackHeight = with(density) { 4.dp.toPx() }
+                val sliderWidth = size.width
+                val progressX = progressFraction * sliderWidth
+
+                drawRect(
+                    brush = activeGradient,
+                    size = Size(progressX, trackHeight)
+                )
+
+                drawRect(
+                    color = inactiveColor,
+                    topLeft = Offset(progressX, 0f),
+                    size = Size(sliderWidth - progressX, trackHeight)
+                )
+            }
+        },
+        thumb = {
+            Box(
+                modifier = Modifier
+                    .size(20.dp)
+                    .background(
+                        brush = Brush.linearGradient(
+                            listOf(Color(0xFF0047AB), Color(0xFF00CFFF))
+                        ),
+                        shape = CircleShape
+                    )
+                    .border(1.dp, Color.White, CircleShape)
+            )
+        }
     )
 }
 
@@ -151,10 +219,7 @@ private fun MusicProgressBarPreview() {
         var progress by remember { mutableStateOf(0.3f) }
 
         Column {
-            MusicProgressBar(progress = progress) { newValue ->
-                progress = newValue
-                // Aqui você atualiza o player (ExoPlayer, MediaPlayer, etc)
-            }
+            MusicProgressBar()
 
             Spacer(modifier = Modifier.height(8.dp))
 
